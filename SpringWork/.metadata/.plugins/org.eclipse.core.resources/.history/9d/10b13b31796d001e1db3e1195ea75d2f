@@ -1,0 +1,22 @@
+package basic07;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ApplicationContextConfigure {
+	@Bean
+	public MessageBean getMessageKr() {
+		return new MessageBeanKr();
+	}
+	
+	@Bean
+	public MessageBean getMessageEn() {
+		return new MessageBeanEn();
+	}
+	
+	@Bean
+	public Outputter output() {
+		return new FileOutputter();
+	}
+}

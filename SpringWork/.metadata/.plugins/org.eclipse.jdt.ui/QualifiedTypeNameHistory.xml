@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="basic03.MessageBeanKr"/>
+    <fullyQualifiedTypeName name="basic03.MessageBeanEn"/>
+    <fullyQualifiedTypeName name="basic03.MessageBeanFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="basic04.MessageBean"/>
+</qualifiedTypeNameHistroy>

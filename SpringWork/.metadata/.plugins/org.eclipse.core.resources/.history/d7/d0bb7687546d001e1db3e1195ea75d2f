@@ -1,0 +1,13 @@
+package basic05;
+
+import java.io.IOException;
+
+public class FileOutputter implements Outputter {
+
+	@Override
+	public void output(String msg) throws IOException {
+		// TODO Auto-generated method stub
+
+	}
+
+}
