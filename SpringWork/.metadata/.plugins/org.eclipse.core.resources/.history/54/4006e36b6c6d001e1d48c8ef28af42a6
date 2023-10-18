@@ -1,0 +1,6 @@
+package basic07;
+
+@Configuration
+public class ApplicationContextConfigure {
+
+}

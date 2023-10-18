@@ -1,0 +1,15 @@
+package basic03;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MessageBeanFactory factory = MessageBeanFactory.newInstance();
+		MessageBean bean = new MessageBeanKr();
+		bean.sayHello("홍길동");
+		
+		bean = new MessageBeanEn();
+		bean.sayHello("Hong");
+	}
+
+}

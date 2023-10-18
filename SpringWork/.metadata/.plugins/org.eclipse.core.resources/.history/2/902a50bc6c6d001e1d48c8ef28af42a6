@@ -1,0 +1,10 @@
+package basic07;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ApplicationContextConfigure {
+	public MessageBean getMessageKr() {
+		
+	}
+}

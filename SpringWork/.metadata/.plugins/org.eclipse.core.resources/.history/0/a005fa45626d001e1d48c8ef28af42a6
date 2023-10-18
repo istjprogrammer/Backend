@@ -1,0 +1,7 @@
+package basic06;
+
+public interface MessageBean {
+	name = "홍길동";
+	age = "20"
+	public void sayHello();
+}

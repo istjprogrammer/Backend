@@ -1,0 +1,7 @@
+package basic05;
+
+import java.io.IOException;
+
+public interface Outputer {
+	void output(String msg) throws IOException;
+}

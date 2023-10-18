@@ -1,0 +1,18 @@
+package basic04;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class App {
+	private
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new ClassPathXmlApplicationContext("config/basic04_config.xml");
+		
+		MessageBean bean = new MessageBeanKr();
+		bean.sayHello("홍길동");
+		
+		bean = new MessageBeanEn();
+		bean.sayHello("Hong");
+	}
+
+}

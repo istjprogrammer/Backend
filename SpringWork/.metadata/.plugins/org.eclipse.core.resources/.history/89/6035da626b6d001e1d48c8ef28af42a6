@@ -1,0 +1,18 @@
+package basic07;
+
+import org.springframework.stereotype.Component;
+
+@Component("msgEn")
+public class MessageBeanEn implements MessageBean {
+	
+	private String name;
+	private int age;
+	private Outputter;
+	
+	public void setName(String name) {this.name = name;}
+	public void setAge(int age) {this.age = age;}
+
+	public void sayHello()  {
+		System.out.println("My name is " + name + " and i am "+ age +" years old.");
+	}	
+}

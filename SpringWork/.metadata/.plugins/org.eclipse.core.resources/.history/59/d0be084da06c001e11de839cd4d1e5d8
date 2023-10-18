@@ -1,0 +1,9 @@
+package basic01;
+
+public class MessageBean {
+	public void sayHello(String name) {
+		System.out.println("Hello~!" + name);
+			MessageBean bean = new MessageBean();
+			bean.sayHello("홍길동");
+	}
+}

@@ -1,0 +1,5 @@
+package basic02;
+
+public class MessageBeanKr {
+	pubulic void sayHello(String name)
+}

@@ -1,0 +1,14 @@
+package basic06;
+
+public class MessageBeanEn implements MessageBean {
+	
+	private String name;
+	private int age;
+	
+	public void setName(String name) {this.name = name;}
+	public void setAge(int age) {this.age = age;}
+
+	public void sayHello(String name)  {
+		System.out.println("My" + name + "이고 나이는 "+ age +"살 입니다.");
+	}	
+}

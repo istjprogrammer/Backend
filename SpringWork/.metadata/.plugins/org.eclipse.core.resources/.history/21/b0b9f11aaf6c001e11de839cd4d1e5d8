@@ -1,0 +1,6 @@
+package basic03.copy;
+
+interface MessageBean {
+	public void sayHello(String name);
+}
+

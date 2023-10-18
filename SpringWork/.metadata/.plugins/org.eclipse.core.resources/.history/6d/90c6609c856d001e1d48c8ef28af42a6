@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+   <!-- byName 방식 -->     
+   <!-- 
+   <bean id="msg" class="basic08.MessageBeanImpl" autowire="byName">
+		<property name = "name" value="홍길동"></property>
+		<property name = "age" value="20"></property>
+	</bean>
+	
+	<bean id="outputter" class="basic08.FileOutputter">
+		<property name="filePath" value="C:\\konny\\Temp\\out.txt"></property>
+	</bean>
+	--> 
+	
+	<!-- byType 방식 -->     
+ 
+   <bean id="msg" class="basic08.MessageBeanImpl" auto>
+		<property name = "name" value="홍길동"></property>
+		<property name = "age" value="20"></property>
+	</bean>
+ 
+	<bean id="outputter_rename" class="basic08.FileOutputter">
+		<property name="filePath" value="C:\\konny\\Temp\\out.txt"></property>
+	</bean>
+	      
+</beans>

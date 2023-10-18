@@ -1,0 +1,27 @@
+package basic05;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class App {
+	private static ApplicationContext ctx;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ctx = new ClassPathXmlApplicationContext("config/basic04_config.xml");
+		
+		MessageBean bean = ctx.getBean("msgKr", basic04.MessageBean.class);
+		bean.sayHello("홍길동");
+		
+		bean = ctx.getBean("msgEn", basic04.MessageBean.class);
+		bean.sayHello("Hong");
+		
+		bean = ctx.getBean("mKr", basic04.MessageBean.class);
+		bean.sayHello("순자");
+		
+		bean = ctx.getBean("msKr", basic04.MessageBean.class);
+		bean.sayHello("영자");
+		
+		bean = ctx.getBean("Kr", basic04.MessageBean.class);
+		bean.sayHello("정숙");
+	}
+}

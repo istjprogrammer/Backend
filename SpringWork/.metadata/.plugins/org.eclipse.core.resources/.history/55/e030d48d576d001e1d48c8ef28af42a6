@@ -1,0 +1,15 @@
+package basic05;
+
+import java.io.IOException;
+
+public class FileOutputter implements Outputer {
+	private String filePath;
+	
+	public void setFilePath(String path) { filePath = path;}
+	@Override
+	public void output(String msg) throws IOException {
+		FileWriter writer = new FileWriter(filePath);
+		writer.write(msg);
+	}
+
+}

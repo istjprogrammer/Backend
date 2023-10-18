@@ -1,0 +1,14 @@
+package basic05;
+
+public class MessageBeanImpl implements MessageBean{
+	private String name;
+	private int age;
+	private String greeting;
+	
+	@Override
+	public void sayHello() {
+		
+	}
+
+}
+

@@ -1,0 +1,6 @@
+package basic02;
+
+interface MessageBean {
+	
+	}
+

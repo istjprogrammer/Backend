@@ -1,0 +1,6 @@
+package basic05;
+
+interface MessageBeanImpl implements MessageBean{
+
+}
+

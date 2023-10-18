@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <bean id="messageBean" class="basic05.MessageBeanImpl">
+   <!--  
+   	<constructor-arg index="0" value="홍길동"></constructor-arg>
+   	<constructor-arg index="1" value="20"></constructor-arg>
+   	<constructor-arg index="2" value="안녕하세요"></constructor-arg>
+   	-->
+   	
+   	<constructor-arg type="int" value="20"></constructor-arg>
+   	<constructor-arg type="String" value="홍길동"></constructor-arg>
+   	<constructor-arg type="String" value="안녕하세요"></constructor-arg>
+   	
+   	<!-- JSP의 SetProperty와 같음.
+   		여기서 만들기만 하기 때문에 get으로는 사용할 수 없음 
+   		setName()메서드를 만들고 인자로 value값을 넣는 것과 같음 -->
+   	<property name="name" value="임꺽정"></property>
+   	<property name="age" value="30"></property>
+   	<property name="greeting" value="또 만났네요"></property>
+   	
+   	<property name="outputter" value=></property>
+   </bean>
+   
+   <bean id="outputter" class="basic05.FileOutputter">
+   		<property name="filePath" value="c:\\Temp\\out.txt"></property>
+   </bean>
+</beans>

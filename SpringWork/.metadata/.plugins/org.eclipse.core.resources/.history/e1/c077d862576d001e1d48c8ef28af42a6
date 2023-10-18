@@ -1,0 +1,12 @@
+package basic05;
+
+import java.io.IOException;
+
+public class FileOutputter implements Outputer {
+
+	@Override
+	public void output(String msg) throws IOException {
+
+	}
+
+}
