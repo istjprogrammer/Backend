@@ -19,6 +19,7 @@
    	-->
    	
    	<!-- byType방식 -->
+   	<!--  
 	<bean id="msg" class="basic08.MessageBeanImpl" autowire="byType">
    		<property name="name" value="홍길동"></property>
    		<property name="age" value="20"></property>
@@ -26,5 +27,22 @@
    	
    	<bean id="outputter_rename" class="basic08.FileOutputter">
    		<property name="filePath" value="c:\\temp\\out.txt"></property>
+   	</bean>
+   	-->
+   	<context:component-scan base-package="basic08"></context:component-scan>
+   	
+   	<bean id="msg" class="basic08.MessageBeanImpl">
+   		<property name="name" value="홍길동"></property>
+   		<property name="age" value="20"></property>
+   	</bean>
+   	
+   	<bean id="outputter_rename" class="basic08.FileOutputter">
+   		<property name="filePath" value="c:\\konny\\Temp\\out.txt"></property>
+   		<qualifier value="out1"></qualifier>
+   	</bean>
+   	
+   	<bean id="outputter_rename2" class="basic08.FileOutputter2">
+   		<property name="filePath" value="c:\\konny\\Temp\\out.txt"></property>
+   		<qualifier value="out2"></qualifier>
    	</bean>
 </beans>
