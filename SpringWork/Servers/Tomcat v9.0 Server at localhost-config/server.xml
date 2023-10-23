@@ -168,7 +168,7 @@
 			
 
 									
-      </Host>
+      <Context docBase="webproject1" path="/webproject1" reloadable="true" source="org.eclipse.jst.j2ee.server:webproject1"/></Host>
     </Engine>
   </Service>
 </Server>
