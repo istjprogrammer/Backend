@@ -10,7 +10,7 @@ public class SpringController implements Controller{
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return new ModelAndView("/WEB-INF/views/spring_request.jsp");
+		return new ModelAndView("/WEB-INF/views/spring_result.jsp");
 	}
 
 }
