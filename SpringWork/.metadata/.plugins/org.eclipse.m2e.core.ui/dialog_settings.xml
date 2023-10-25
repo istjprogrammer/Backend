@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\konny\SpringWork\Servers"/>
 			<item value="C:\konny\SpringWork\member3"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -26,6 +27,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.konny.webproject3"/>
 			<item value="com.konny.Webproject2"/>
 			<item value="com.konny.webproject2"/>
 			<item value="com.konny"/>
@@ -38,6 +40,7 @@
 			<item value="net.netsong7"/>
 		</list>
 		<list key="artifactId">
+			<item value="webproject3"/>
 			<item value="Webproject2"/>
 			<item value="webproject2"/>
 			<item value="webproject1"/>
