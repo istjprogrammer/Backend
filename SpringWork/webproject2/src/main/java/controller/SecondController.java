@@ -1,5 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -71,11 +76,42 @@ public class SecondController {
 	}
 	*/
 	
-	@GetMapping("/fourth")
-	public ModelAndView fourthPage(@ModelAttribute user dto) {
+	@RequestMapping("/fourth")
+	public ModelAndView fourthPage(@ModelAttribute user dto,
+			@RequestParam String chk) {
 		
 		ModelAndView mv = new ModelAndView("/WEB-INF/views/fourth.jsp");
 		mv.addObject("user",dto);
+		return mv;
+	}
+	
+	@RequestMapping("/fifth")
+	public ModelAndView fifthPage() {
+		List list = new ArrayList();
+		
+		list.add("순자");
+		list.add("영자");
+		list.add("정숙");
+		list.add("옥순");		
+		
+		Map map = new HashMap<String, String>();
+		map.put("f1", "사과");
+		map.put("f2", "복숭아");
+		map.put("f3", "메론");
+		
+		List listDay = new ArrayList<String>();
+		listDay.add("월요일");
+		listDay.add("화요일");
+		listDay.add("수요일");
+		
+		Map mapDay = new HashMap<String, List>();
+		mapDay.put("day", listDay);
+		
+		ModelAndView mv = new ModelAndView("/WEB-INF/views/fifth.jsp");
+		mv.addObject("SOLO", list);
+		mv.addAllObjects(map);
+		mv.addAllObjects(mapDay);
+		
 		return mv;
 	}
 }

@@ -20,6 +20,7 @@
 		<input type="text" name="name"/><br>
 		<input type="text" name="age"/><br>
 		<input type="text" name="point"/><br>
+		<input type="checkbox" name="chk" value="check"/>동의 여부<br>
 		<input type="submit" value="전송"/><br>
 	</form>
 	
