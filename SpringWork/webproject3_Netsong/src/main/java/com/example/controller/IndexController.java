@@ -18,6 +18,7 @@ public class IndexController extends AbstractController{
 }
 */
 
+/*
 @Controller
 public class IndexController {
 	
@@ -27,18 +28,4 @@ public class IndexController {
 		return new ModelAndView("index");
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/

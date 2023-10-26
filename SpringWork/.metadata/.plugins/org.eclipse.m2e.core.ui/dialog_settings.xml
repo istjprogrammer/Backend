@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\konny\SpringWork\webproject3_Netsong"/>
 			<item value="C:\konny\SpringWork\Servers"/>
 			<item value="C:\konny\SpringWork\member3"/>
 		</list>
@@ -27,6 +28,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.konny.finalproject"/>
 			<item value="com.konny.webproject3"/>
 			<item value="com.konny.Webproject2"/>
 			<item value="com.konny.webproject2"/>
@@ -40,6 +42,7 @@
 			<item value="net.netsong7"/>
 		</list>
 		<list key="artifactId">
+			<item value="finalproject"/>
 			<item value="webproject3"/>
 			<item value="Webproject2"/>
 			<item value="webproject2"/>
@@ -79,6 +82,14 @@
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
