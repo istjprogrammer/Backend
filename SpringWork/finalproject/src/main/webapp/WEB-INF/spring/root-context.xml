@@ -7,9 +7,28 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc 
         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="1111"></property>
+	</bean>
 	
-	<!-- 어노테이션을 읽어들이는 역할 -->
-	<context:component-scan base-package="com.exam" />
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	
+	<bean id ="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name = "dataSource" ref="dataSource"></property><!-- 위의 데이터 값을 가져오기 위해서 ref에 값을 넣어준다! -->
+		<property name = "configLocation" 
+			value="classpath:/mybatis-config.xml"/><!-- 일종의 가상(psuedo protocol)의 약속이다. 여기서는 classpath만 쓸 수 있다는 뜻 -->
+		<property name = "mapperLocations" value="classpath:mappers/**/*-mapper.xml"/><!-- mapperLocation에는 폴더를 설정했으니 classpath에 mappers를 추가 -->
+	</bean>	
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 </beans>

@@ -7,6 +7,13 @@ public class Board {
 	private String bWriter;
 	private String bRegdate;
 	private int bViewcnt;
+	
+	public Board(String bTitle, String bContent, String bWriter) {
+		this.bTitle = bTitle;
+		this.bContent = bContent;
+		this.bWriter = bWriter;
+	}
+	
 	public int getbNo() {
 		return bNo;
 	}
@@ -46,13 +53,13 @@ public class Board {
 }
 
 /*
- 	CREATE TABLE simpleBoard(
- 	bNo	number	not null,
- 	bTitle varchar(200) not null,
- 	bContent text null,
- 	bWriter	vatchar(50) not null,
- 	bRegdate timestamp	not null default sysdate,
- 	bViewcnt number default	0,
- 	primary key(bNo)
- 	);
- */
+CREATE TABLE simpleBoard(
+	bNo			number		not null,
+	bTitle		varchar2(200) not null,
+	bContent	text	null,
+	bWriter		varchar2(50) not null,
+	bRegdate	timestamp not null default sysdate,
+	bViewcnt	number default 0,
+	primary key(bNo)
+); 
+*/
