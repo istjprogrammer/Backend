@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.exam.mybatis.boardMapper">
+	<insert id="write" parameterType="Board">
+		INSERT INTO simpleBoard(bNo, bTitle, bWriter, bContent)
+		VALUES(seq_bno.nextVal, #{bTitle}, #{bWriter}, #{bContent})
+	</insert>
+	
+	<select id="getList" resultType="Board">
+		SELECT * FROM simpleBoard ORDER BY bno DESC
+	</select>
+	
+	<select id="read" resultType="Board" parameterType="int">
+		SELECT * FROM simpleBoard WHERE bno=#{bNo}
+	</select>
+</mapper>
+
+
+
+

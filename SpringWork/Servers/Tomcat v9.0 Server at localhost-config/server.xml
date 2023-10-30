@@ -168,7 +168,7 @@
 			
 
 									
-      <Context docBase="finalproject" path="/finalproject" reloadable="true" source="org.eclipse.jst.j2ee.server:finalproject"/></Host>
+      <Context docBase="finalproject_netsong" path="/finalproject" reloadable="true" source="org.eclipse.jst.j2ee.server:finalproject_netsong"/></Host>
     </Engine>
   </Service>
 </Server>
