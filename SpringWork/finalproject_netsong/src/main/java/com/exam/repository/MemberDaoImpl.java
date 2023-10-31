@@ -10,6 +10,9 @@ import com.exam.domain.RegisterRequest;
 @Repository
 public class MemberDaoImpl implements MemberDao{
 	@Autowired
+	private MemberDao memberDao;
+	
+	@Autowired
 	private SqlSession sqlSession;
 	
 	private static final String NAMESPACE = "com.exam.mybatis.memberMapper";
@@ -27,8 +30,11 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public Member selectWithPass(String email, String pw) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		RegisterRequest rr = new RegisterRequest();
+		rr.setEmail(email);
+		rr.setPassword(pw);		
+		
+		return sqlSession.selectOne(NAMESPACE + ".selectWithPass", rr);
 	}
 
 }

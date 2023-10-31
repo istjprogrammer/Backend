@@ -22,14 +22,20 @@ public class MemberDaoImplTest {
 	@Autowired
 	private MemberDao memberDao;
 	
-	@Test
+	
 	public void registerTest() throws Exception {
 		RegisterRequest regreq = new RegisterRequest();
-		regreq.setEmail("hong@test.com");
-		regreq.setName("홍길동");
+		regreq.setEmail("java@test.com");
+		regreq.setName("이현재");
 		regreq.setPassword("1111");
 		
 		memberDao.registerMember(regreq);
+	}
+	
+	@Test
+	public void testSelectWithPass() throws Exception {
+		assertNotNull(memberDao.selectWithPass("java@test.com", "1111"));
+		assertNull(memberDao.selectWithPass("java@test.com", "2222"));
 	}
 }
 
