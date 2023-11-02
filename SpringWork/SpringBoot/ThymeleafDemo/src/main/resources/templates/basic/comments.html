@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>주석 처리</h1><hr>
+	<h2 th:text="${data}">html data</h2>
+		
+	<h3>표준 주석</h3>
+	<!--span th:text="${data}">html data</span-->
+	<hr>
+	
+	<h3>타임리프 파서 주석</h3>
+	해당 주석 내용은 렌더링에서 주석 부분이 제거된다.
+	<!--/*--> 
+	<span th:text="${data}">html data</span>
+	<span th:text="${data}">html data</span>
+	<!--*/-->
+	<hr>
+	
+	<h3>타임리프 프로토타입 주석</h3>
+	HTML파일을 그대로 열면 렌더링 되지 않고,
+	타임리프를 렌더링 한 경우에만 보이는 주석<br>
+	<!--/*/
+	<span th:text="${data}">html data</span>
+	/*/-->
+	
+</body>
+</html>

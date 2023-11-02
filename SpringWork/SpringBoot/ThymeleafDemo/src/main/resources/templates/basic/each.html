@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>반복 처리</h1>
+	
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<!-- 반복문 -->
+		<!-- 데이터 없으면 태그 밖에 내용 출력 -->
+		<!-- 변수 뒤에 Stat붙이면 다양한 함수 사용 가능 -->
+		<tr th:each="user : ${users}">
+			<td th:text="${userStat.count}"></td>
+			<td th:text="${user.userName}">데이터 없음</td>
+			<td th:text="${user.age}">0</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<!-- 변수 뒤에 따로 변수선언하고 다른 변수로써 함수 사용가능 -->
+		<tr th:each="user, uState: ${users}">
+			<td th:text="${uState.count}"></td>
+			<td th:text="${user.userName}">데이터 없음</td>
+			<td th:text="${user.age}">0</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<!-- th:object=${변수} = 선택한 변수를 사용하는 중, 달러 지우고 *, 변수 지움 -->
+		<tr th:each="user, uState: ${users}" th:object=${user}>
+			<td th:text="${uState.count}"></td>
+			<td th:text="*{userName}">데이터 없음</td>
+			<td th:text="*{age}">0</td>
+		</tr>
+	</table>
+	
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>정보</th>
+		</tr>
+		<tr th:each="user : ${users}">
+			<td th:text="${user.userName}">데이터 없음</td>
+			<td th:text="${user.age}">0</td>
+			<td>
+				<!-- 크기 -->
+				index = [[${userStat.index}]]
+				count = [[${userStat.count}]]
+				size = [[${userStat.size}]]
+				<!-- 홀짝 여부 -->
+				even? = [[${userStat.even}]]
+				odd? = [[${userStat.odd}]]
+				<!-- 순서 -->
+				first? = [[${userStat.first}]]
+				last? = [[${userStat.last}]]
+				current = [[${userStat.current}]]
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

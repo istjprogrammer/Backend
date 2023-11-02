@@ -36,6 +36,12 @@
 	</ul>
 	</hr>
 
+	<div th:with="item=${users[0]}">
+		<ul>
+			<li> 이름 : <span th:text="${item.userName}"></span></li>
+			<li> 나이 : [[${item.age}]]</li>
+		</ul>
+	</div>
 </body>
 
 </html>

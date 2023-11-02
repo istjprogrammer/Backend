@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>LocalDateTime</h1>
+	default : [[${localDateTime}]]<br>
+	<hr>
+	[[${#temporals.format(localDateTime, "yyyy-MM-dd HH:mm:ss")}]]
+	<!--/a를 붙힐 경우 오전, 오후를 구분할 수 있다.-->
+	[[${#temporals.format(localDateTime, "yyyy-MM-dd/a HH:mm:ss")}]]
+	<hr>
+
+	[[${#temporals.day(localDateTime)}]]<br>
+	[[${#temporals.month(localDateTime)}]]<br>
+	[[${#temporals.monthName(localDateTime)}]]<br>
+	[[${#temporals.monthNameShort(localDateTime)}]]<br>
+	[[${#temporals.year(localDateTime)}]]<br>
+	[[${#temporals.dayOfWeek(localDateTime)}]]<br>
+	[[${#temporals.dayOfWeekName(localDateTime)}]]<br>
+	[[${#temporals.dayOfWeekNameShort(localDateTime)}]]<br>
+	[[${#temporals.hour(localDateTime)}]]<br>
+	[[${#temporals.minute(localDateTime)}]]<br>
+	[[${#temporals.second(localDateTime)}]]<br>
+	[[${#temporals.nanosecond(localDateTime)}]]<br>
+
+</body>
+
+</html>

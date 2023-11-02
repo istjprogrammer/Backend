@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>조건문</h1><hr><br>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<!-- 변수 뒤에 따로 변수선언하고 다른 변수로써 함수 사용가능 -->
+		<tr th:each="user : ${users}">
+			<td th:text="${userStat.count}"></td>
+			<td th:text="${user.userName}">데이터 없음</td>
+			<td>
+				<span th:text="${user.age}">0</span>
+				<span th:text="'30대'" th:if="${user.age > 20}">0</span>
+				<span th:text="'10대'" th:unless="${user.age >= 20}">0</span>
+			</td>
+		</tr>
+	</table><br><hr><br>
+	
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>나이</th>
+		</tr>
+		<!-- 변수 뒤에 따로 변수선언하고 다른 변수로써 함수 사용가능 -->
+		<tr th:each="user : ${users}">
+			<td th:text="${userStat.count}"></td>
+			<td th:text="${user.userName}">데이터 없음</td>
+			<td th:switch="${user.age}">
+				<span th:case="10">10살</span>
+				<span th:case="20">20살</span>
+				<span th:case="*">etc</span>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
