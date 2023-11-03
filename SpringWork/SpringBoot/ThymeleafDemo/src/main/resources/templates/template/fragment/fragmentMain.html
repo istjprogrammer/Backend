@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>부분 포함</h1><hr>
+	
+	<h2>insert방식 포함</h2>
+	<div th:insert="~{template/fragment/footer :: copy}"></div>
+	<!--이렇게 해도 결과는 같다.-->
+	<div th:insert="template/fragment/footer :: copy"></div>
+	
+	<h2>replace방식 포함</h2>
+	<div th:replace="~{template/fragment/footer :: copy}"></div>
+	
+	<hr>
+	
+	<h2>파라미터 사용</h2>
+	<div th:replace="~{template/fragment/footer :: copyParam('데이터1', '데이터2')}"></div>
+</body>
+</html>

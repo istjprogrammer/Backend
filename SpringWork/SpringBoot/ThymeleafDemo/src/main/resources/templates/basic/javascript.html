@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>javascript</h1><br><hr>
+	<script th:inline="javascript">
+		let username = [[${user.userName}]]
+		let age = [[${user.age}]]
+		
+		/*객체를 Json 형식으로 저장*/
+		let user = [[${user}]]
+		/*나이를 나타내는 메세지 박스 출력*/
+		alert(age)
+		[# th:each="user : ${users}"]
+			let item[[${userStat.count}]] = [[${user}]]
+		[/]
+	</script>
+</body>
+</html>
