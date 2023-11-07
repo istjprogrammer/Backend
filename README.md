@@ -1,1 +1,1 @@
-# Acorn Java 개발자 양성과정 학습일지
+# Acorn Java 아카데미 학습일지
