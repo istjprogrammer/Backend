@@ -59,7 +59,8 @@ fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
 
 //getMovies를 promies 방식으로 수정
 
-const getMovies = (movieName) =>{
+/*
+const getMovies = (movieName, cb) =>{
     return new Promise(resolve =>{
     fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
         //fetch로 데이터를 받아온 다음 then으로 함수 돌려주기  
@@ -68,8 +69,32 @@ const getMovies = (movieName) =>{
         })
     })
 }
+*/
+/*
+getMovies('frozen').then(()=>{
+    console.log("겨울왕국")
+    return getMovies('avengers');
+}).then(()=>{
+    console.log("어벤져스")
+    return getMovies('avatar')
+}).then(()=>{
+    console.log("아바타");
+});
+*/
 
-getMovies()
-    .then('frozen', ()=>{console.log("겨울왕국")})
-    .then('avengers', ()=>{console.log("어밴저스")})
-    .then('avater', ()=>{console.log("아바타")})
+//async와 await 방식으로 바꿔본다면?
+
+/*
+const wrap = async()=>{
+    await getMovies('frozen')
+    console.log("겨울 왕국")
+
+    await getMovies('avengers')
+    console.log("어벤져스")
+
+    await getMovies('avatar')
+    console.log("아바타")
+}
+
+wrap();
+*/
