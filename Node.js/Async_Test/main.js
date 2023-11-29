@@ -98,3 +98,45 @@ const wrap = async()=>{
 
 wrap();
 */
+
+//promise를 활용한 error처리 방식
+/*
+const getMovies = (movieName) =>{
+    return new Promise((resolve, reject) => {
+    fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+        //fetch로 데이터를 받아온 다음 then으로 함수 돌려주기  
+        .then(res => res.json())
+        .then(json => {console.log(json);
+                        //Error 처리 방식
+                        if(json.Response == "False"){
+                            reject(json.Error)
+                        }
+                        //그렇지 않을 경우 resolve 출력
+                        resolve(json)
+        })
+        .catch(err => {reject(err)})
+    })
+}
+*/
+/*
+let loading = true;
+getMovies('netsong')
+    .then(movies => console.log("영화목록 : ", movies))
+    .catch(error => {
+            console.log("에러 발생: ", error)
+            loading = false;    
+        })
+*/
+
+/*
+const wrap = async() => {
+    try{
+    const movies = await getMovies('avengers')
+    console.log("영화 목록 : ", movies)
+    }
+    catch(err){
+        console.log('에러 발생')
+    }
+}
+wrap()
+*/
