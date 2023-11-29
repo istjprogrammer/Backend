@@ -54,3 +54,41 @@
     - node_modules
     - Package.json
     - Package-lock.json
+
+    (1) Semantics Version
+        - 버전 번호의 증가 : Major.Minor.patch
+        - 호환되지 않는 API 변경시 major 버전(굉장히 큰 공사다.)
+        - 이전 버전과 호환되는 방식으로 기능을 추가하는 minor 버전
+        - 이전 버전과 호환되는 버그 수정시 patch 버전 증가
+
+    (2) Semantics 
+        - ~(필드)
+            patch 버전까지만 설치 및 업데이트
+            ~0.1.1 : >=0.1.1 < 0.2.0
+        - ^(캐럿)
+            minor 버전까지만 설치 및 업데이트
+            ^1.0.5 : >=1.0.5 <2.0.0
+    
+    (3) package-lock.json
+        1) package-lock.json이 생성되는 시점의 node_modules에 대한 정보를 가지고 있는 파일(최신정보)
+        2) 소스 레포지토리(깃허브)에 커밋하기 위한 것이며 다양한 용도로 사용된다.
+        3) 배포(CD) 및 지속적 통합(CI)이 동일한 종속성을 설치하도록 보장
+        4) 디렉토리 자체를 커밋하지 않더라도 node_modules의 이전 상태로 시간여행
+        5) 트리 변경 사항을 쉽게 볼 수 있게 한다.
+    
+    (4) npm audit(취약점 검사)
+        - 취약성에 대한 보고서를 요청하고 취약점이 발견되면 영향과 적절한 교정이 계산된다.
+        - npm audit fix --force
+
+6. 웹 서버
+    - 지금까지 했던 리엑트, 뷰는 node에 있는 서버를 이용(tomcat를 사용X)
+    - node가 가지고 있는 모듈이 있고, 좀 더 전문적으로 쓰고 싶으면 기본 모듈 말고 express를 쓰면 된다.
+
+    1) 기본적인 웹 서버 기능
+        -postman 사용(post방식은 url로 접속을 할 수 없기에 fetch를 쓰거나 postman을 활용한다.)
+7. express
+    - 스프링에 타임리프가 있다면, node에는 익스프레스가 있다.
+    - 교재 404페이지 참고
+    - npm을 한번도 사용한적이 없으면 npm init로 초기화를 해준다.
+    - npm install express 로 설치해준다.
+    - SPRING에 비해서 Node.js가 압도적으로 편한 이유가 Spring은 환경설정부터 초보자가 하기에는 어려운 경우가 많지만 노드js는 너무 간단하게 할 수 있다.
