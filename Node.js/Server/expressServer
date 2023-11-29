@@ -1,0 +1,16 @@
+//먼저 express서버를 가져와준다
+const express = require("express");
+
+//port번호 지정
+const PORT = 4000;
+const HOST = "0.0.0.0";
+
+//출력 코드 지정
+const app = express();
+app.get("/", (req, res)=>{
+    res.send("Hello World")
+});
+
+//실행시 콘솔창에 port번호와 host 출력
+app.listen(PORT, HOST);
+console.log(`Run on http://${HOST}:${PORT}`)
