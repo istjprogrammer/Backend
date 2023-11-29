@@ -1,16 +1,31 @@
 //먼저 express서버를 가져와준다
 const express = require("express");
 
+//Data
+const Users =[
+    {
+    id:0,
+    name: 'Jack'
+    },
+    {
+    id:1,
+    name: 'Jeniffer'
+    }
+]
+
 //port번호 지정
 const PORT = 4000;
 const HOST = "0.0.0.0";
 
-//출력 코드 지정
 const app = express();
 app.get("/", (req, res)=>{
     res.send("Hello World")
 });
 
-//실행시 콘솔창에 port번호와 host 출력
+//get방식으로 /users라는 요청이 들어왔을 때 보여줄 정보
+app.get("/users", (req, res)=>{
+    res.send(Users);
+});
+
 app.listen(PORT, HOST);
 console.log(`Run on http://${HOST}:${PORT}`)
