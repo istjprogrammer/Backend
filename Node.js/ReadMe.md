@@ -48,4 +48,9 @@
     Package.json에 간단하게 쓸 수 있는 방법이 있다.
     (npm install cross-env 로 명령을 실행해준다)
         posix를 통해서 환경변수를 똑같이 쓸 수 있다는 것이 장점이다.
-        
+4. 동기, 비동기
+
+5. 패키지 관리 : npm(패키지 관리), npx(프로그램 실행)
+    - node_modules
+    - Package.json
+    - Package-lock.json
