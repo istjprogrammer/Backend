@@ -18,10 +18,12 @@ const server = http.createServer((req,res)=>{
     //post방식이면서 라우팅은 home으로 접속했을 때
     //post 방식은 url로 바로 접속이 안되서(get방식은 가능하다.) 웹브라우저에서 콘솔창을 열어서 실행해야 한다.
     //fetch('http://localhost:3007/home', {method:'POST'}, body:JSON.stringify({c:"c"})); 이렇게 콘솔창에 입력해주면 테스트 가능!
+    //이렇게 하면 너무 귀찮으니 POSTMAN을 설치해서 간단하게 해볼 수 있다!
     if(req.method == "POST" && req.url==="/home"){
         //on은 사용자가 요청을 보냈을 때 활성화시키는 기능이다.
         req.on('data', (data)=> {
-            console.log(data)
+           const strData = data.toString()//문자열로 변형시키는 기능이다.
+           Object.assign(targetObject, JSON.parse(strData));//assign해주는 기능
         })
     }
 
