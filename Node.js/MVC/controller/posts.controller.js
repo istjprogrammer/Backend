@@ -1,8 +1,11 @@
 const path = require("path")
+//절대경로로 해줘야 잘 동작할 수 있다.
 
-//이미지를 등록하기 위한 기능
-function getPost(req, res){
-    res.sendFile(path.join(__dirname, '..', 'public', 'images', 'running.gif'));
+function getPost(req, res) {
+    res.render('posts', {
+    tempName: "post",
+    title : "Post Page"
+    })
 }
 
 module.exports = {getPost}
