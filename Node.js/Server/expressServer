@@ -1,97 +1,47 @@
-//먼저 express서버를 가져와준다
 const express = require("express");
+const usersRouter = require("./routes/users.routes");
+const postsRouter = require("./routes/posts.routes");
+const path = require("path")
 
-//Data
-const Users =[
-    {
-    id:0,
-    name: 'Jack'
-    },
-    {
-    id:1,
-    name: 'Jeniffer'
-    }
-]
-
-//port번호 지정
-const PORT = 4000;
+// constants
+const PORT = 5000;
 const HOST = "0.0.0.0";
 
 const app = express();
 
-//MiddleWare(req와 res의 중간 다리 역할)
+//middleware를 등록하는데 use가 아니라 set을 쓴 이유는 use는 지역변수고 set은 전역변수이기 때문이다.
+app.set("view engine", 'hbs');
+app.set("views", path.join(__dirname, 'views'))
+
 app.use((req, res, next)=>{
-    //현재 시간을 저장
     const start = Date.now();
-    console.log(`${req.method} ${req.url}`);
+    console.log(`start : ${req.method} ${req.url}`);
     next();
 
     const diffTime = Date.now() - start;
-    console.log(`${req.method} ${req.url} ${diffTime}ms`);
-    //요청을 계속 하다보면 처음에는 4ms이후에는 1ms밖에 안걸린다.
-    //캐시 때문에 그렇다.
+    console.log(`end : ${req.method} ${req.url} ${diffTime}ms`);
 })
 
-//middleware use를 확인할 수 있도록 설정
 app.use(express.json())
 
-//use를 활용해서 middleware가 만들어진다.
+//public 공간을 static으로 지정
+//이렇게 하면 http://localhost:5000/static/index.html 이렇게 직접 경로로 접근할 수 있다!
+//static을 빼고 접근하려고 하면 출력이 안된다.
+//dirname으로 절대 경로로 지정해줘야 어디서든지 실행이 된다.
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.use("/users", usersRouter);
+app.use("/posts", postsRouter);
 
 app.get("/", (req, res)=>{
-    res.send("<h1>Hello World!</h1>")
+    //index.html을 보여주기
+    //render는 그려준다는 뜻이다.
+    res.render('index', {
+        imageTitle : "This is a Forest...",
+        title: "Main Page"
+    })
 });
 
-app.get("/", (req, res)=>{
-    res.send("Hello World")
-});
-
-app.get("/users", (req, res)=>{
-    res.send(Users);
-});
-
-
-//restful 방식으로 요청하기(특정 사용자에게만 요청)
-//id가 1인 사람에게 요청할때는?
-//그러나 이렇게 하면 일관성이 떨어진다.
-
-//get방식으로 /users라는 요청이 들어왔을 때 보여줄 정보
-//전체 사용자가 아니라 특정 사용자만 조회하겠다는 요청
-//userId라는 변수를 선언
-//Users라는 배열에서 아이디를 꺼내오는 방식으로
-
-//http://localhost:4000/users/1 이렇게 요청하면 users의 jeniffer가 잘 출력된다.
-
-app.get("/users/:userId", (req, res)=>{
-    const userId = req.params.userId
-    const user = Users[userId]
-    //제대로 된 아이디 전송시 정상출력
-    //res.send를 사용하나, res.json을 사용하나 결과는 같다.
-    //json이나 send를 사용하면 자동으로 end를 호출한다.
-    if(user)
-        res.json(user);
-    //잘못된 아이디 전송시 404에러 출력
-    else    
-        res.sendStatus(404);
-});
-
-//post방식 요청
-//이 경우 middleware가 막혀서 undefined가 뜬다.
-//middleware가 제대로 역할을 해줘야 데이터를 꺼내올 수 있다.
-app.post("/users", (req, res)=>{
-    // console.log('req.body.name : ' + req.body.name);
-
-    if(!req.body.name){
-        res.status(400).json({error: "Missing user name"})
-    }
-
-    const newUser={
-        name: req.body.name,
-        id: Users.length
-    }
-
-    Users.push(newUser);
-    res.json(newUser);
-});
 
 app.listen(PORT, HOST);
-console.log(`Run on http://${HOST}:${PORT}`)
+console.log(`Running on http://${HOST}:${PORT}`);
