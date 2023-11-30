@@ -91,4 +91,37 @@
     - 교재 404페이지 참고
     - npm을 한번도 사용한적이 없으면 npm init로 초기화를 해준다.
     - npm install express 로 설치해준다.
-    - SPRING에 비해서 Node.js가 압도적으로 편한 이유가 Spring은 환경설정부터 초보자가 하기에는 어려운 경우가 많지만 노드js는 너무 간단하게 할 수 있다.
+
+    -Nodemon 설치(코드 변경이 있으면 자동으로 다시 실행해주는 역할)
+        npm install -D nodemon 또는 npm install --save-dev nodemon
+        (실행할때만 사용할 수 있다.)
+    -package.json에 스크립트를 추가해주면
+    "scripts": {
+    "dev" : "nodemon express_server1.js"
+    }
+    이제 실행할 때 npm run dev만 입력해도 실행할 수 있게 된다.
+    -그리고 nodemon이 설치되어서 이제 서버를 굳이 껐다 켤 필요가 없다.
+    
+    (1) MiddleWare
+        node.js는 중간에 middleware를 지원한다.
+        middleware는 중간에 연결을 해주는 프로그램인데,
+        예를들면 java와 DB를 연결해주는 jdbc같은 역할이다.
+
+        웹 서버에서 미들웨어는 request와 response 사이에서 기능을 수행한다.
+        
+    (2) MVC 패턴
+        만약에 node.js를 MVC 패턴으로 만들려면?
+        - router
+        - static
+        - template engine
+            https://expressjs.com/en/resources/template-engines.html 
+            (이 사이트에 들어가면 많은 template engines이 나온다.)
+            npm i hbs (hbs 템플릿 엔진 추가)
+
+        이렇게 3개를 꼭 써야 한다.
+    
+8. DataBase
+    (1) Oracle
+        1-1 모듈 설치 : npm i oracledb
+        1-2 오라클 클라이언트 라이브러리 설치
+    (2) MongoDB(추후에 할 예정)
