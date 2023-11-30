@@ -1,3 +1,5 @@
+const Users = require("../models/users.model")
+
 //모든 사용자 조회
 function getUsers(req, res) {
     res.send(Users);
@@ -27,4 +29,10 @@ function postUser(req, res) {
 
     Users.push(newUser);
     res.json(newUser);
+}
+
+module.exports = {
+    getUser,
+    getUsers,
+    postUser   
 }
