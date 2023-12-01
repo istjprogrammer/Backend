@@ -14,13 +14,19 @@ const getHtml = async ()=>{
 
 getHtml()
     .then((html)=>{
+        let ulList = [];
         const $ = cheerio.load(html.data);
         // console.log($);
         //$는 전체 값을 의미한다.
         //모든 자식들을 가져오는데 li테그만 가져오기
         $bodyList = ($("div#searchList ol").children("li"));
 
+        //ulList에 값을 담아주기!
         $bodyList.each(function (i, elem){
-            console.log($(this).find('a').text());
-        });
-    })
+            ulList[i] ={
+                booklist: $(this).find('a').text(),
+                url: $(this).find('a').attr('href')
+        }
+    });
+    console.log(ulList)
+})
